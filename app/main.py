@@ -1,8 +1,6 @@
-import time
 from fastapi import FastAPI, HTTPException, Header, status
 from pydantic import BaseModel, EmailStr
 from typing import Optional
-from fastapi import Request
 
 from src.validators import validate_age, validate_password, validate_discount
 
@@ -77,10 +75,3 @@ def apply_discount(
         "order_id": data.order_id,
         "applied_discount": data.discount_percent
     }
-@app.middleware("http")
-async def log_requests(request: Request, call_next):
-    start_time = time.time()
-    response = await call_next(request)
-    process_time = time.time() - start_time
-    print(f"[LOG] Method: {request.method} | Path: {request.url.path} | Time: {process_time:.4f}s")
-    return response
