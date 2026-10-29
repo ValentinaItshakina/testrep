@@ -77,7 +77,6 @@ def apply_discount(
         "order_id": data.order_id,
         "applied_discount": data.discount_percent
     }
-
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     start_time = time.time()

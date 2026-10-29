@@ -2,10 +2,10 @@ import re
 
 def validate_age(age: int) -> bool:
     """
-    AC-013 / TR-VAL-01: Проверка возраста пользователя.
-    Допустимый диапазон: 18 <= age < 99 (от 18 до 98 включительно).
+    Проверка возраста пользователя (AC-013).
+    Обновленный формат документации для проверки частичного diff.
     """
-    return 16 <= age < 99
+    return 18 <= age < 99
 
 
 def validate_password(password: str) -> bool:
