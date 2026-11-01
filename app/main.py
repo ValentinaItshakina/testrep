@@ -28,11 +28,11 @@ class DiscountRequest(BaseModel):
 @app.post("/api/v1/auth/register", status_code=status.HTTP_201_CREATED)
 def register_user(data: RegisterRequest):
     # TR-VAL-01: Валидация возраста (18 <= age < 99)
-    if not validate_age(data.age):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid age: must be between 18 and 98"
-        )
+    #if not validate_age(data.age):
+        # raise HTTPException(
+        #     status_code=status.HTTP_400_BAD_REQUEST,
+        #     detail="Invalid age: must be between 18 and 98"
+        # )
 
     # TR-VAL-02: Валидация пароля (мин 8 символов, хотя бы 1 цифра)
     if not validate_password(data.password):
